@@ -9,7 +9,7 @@ import datetime
 
 args = sys.argv[1:]
 if not args:
-    throw ('No filename given')
+    raise Exception('No filename given')
 elif len(args) == 1:
     format = '%d-%m-%Y'
 else:
