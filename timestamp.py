@@ -9,15 +9,21 @@ import datetime
 # a command line parameter
 
 args = sys.argv[1:]
-if not args:
-    raise Exception('No filename given')
-elif len(args) == 1:
-    format = '%d-%m-%Y'
-else:
-    format = args[1]
+piped = []
+if not sys.stdin.isatty():
+    for line in sys.stdin:
+        piped.append(line[:-1])
+
+combined = args + piped
+
+if not combined:
+    raise Exception('No arguments given')
+
+format = '%d-%m-%Y'
 today = datetime.date.today()
 
-source = args[0]
-filename, ext = os.path.splitext(source)
-destination = filename + today.strftime(format) + ext
-os.rename(source, destination)
+for source in combined:
+    filename, ext = os.path.splitext(source)
+    destination = filename + today.strftime(format) + ext
+    print destination
+#os.rename(source, destination)
