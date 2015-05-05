@@ -4,12 +4,12 @@ Simple python scripting for everyday tasks
 * pullout
 * replacename
 * timestamp
+* upper
+* lower
 
 ## TODO
 
 * datestamp
-* upper
-* lower
 * flatten
 * compress
 * uncompress
