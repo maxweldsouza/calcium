@@ -9,12 +9,19 @@ import datetime
     remainingargs = list of filenames"""
 
 args = sys.argv[1:]
-if len(args) < 3:
+piped = []
+if not sys.stdin.isatty():
+    for line in sys.stdin:
+        piped.append(line[:-1])
+
+combined = args + piped
+
+if len(combined) < 3:
     raise Exception('Incorrect no of arguments')
 else:
-    findstr = args[0]
-    repstr = args[1]
-    filelist = args[2:]
+    findstr = combined[0]
+    repstr = combined[1]
+    filelist = combined[2:]
 
 for original in filelist:
     path, file = os.path.split(original)
