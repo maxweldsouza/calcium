@@ -6,6 +6,7 @@ Simple python scripting for everyday tasks
 * timestamp
 * upper
 * lower
+* sort
 
 ## TODO
 
@@ -14,7 +15,6 @@ Simple python scripting for everyday tasks
 * compress
 * uncompress
 * filter
-* sort
 * parentdirectory
 * removeduplicates
 * minify

@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import os
-import calcium
+from calcium import Calcium
 
-""" Sorts given filenames in alphabetical order"""
+msg = """Sorts given filenames in alphabetical order"""
 
-args = calcium.get_arguments()
+calcium = Calcium()
+args = calcium.start(msg)
 
 filelist = args
 
@@ -15,5 +16,6 @@ for original in filelist:
     files.append(file)
     paths.append(path)
 files.sort()
-for file in files:
-    print path + file
+if not calcium.debug:
+    for file in files:
+        print path + file

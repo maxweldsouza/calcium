@@ -1,14 +1,15 @@
 #!/usr/bin/env python
 import os
 import datetime
-import calcium
+from calcium import Calcium
 
-""" Find and replace in file names
+msg = """ Find and replace in file names
     arg1 = string to find
     arg2 = string to replace
     remainingargs = list of filenames"""
 
-args = calcium.get_arguments()
+calcium = Calcium()
+args = calcium.start(msg)
 
 filelist = args
 
@@ -16,4 +17,6 @@ for original in filelist:
     path, file = os.path.split(original)
     destination = os.path.join(path, file.upper())
     print destination
-#os.rename(original, destination)
+if not calcium.debug:
+    print destination
+    os.rename(original, destination)
