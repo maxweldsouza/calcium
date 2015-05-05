@@ -26,5 +26,5 @@ else:
 for original in filelist:
     path, file = os.path.split(original)
     destination = os.path.join(path, file.replace(findstr, repstr))
-    print destination,
+    print destination
 #os.rename(original, destination)
