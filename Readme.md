@@ -1,6 +1,8 @@
 # Calcium
 Simple python scripting for everyday tasks
 
+To install run python setup.py install
+
 * pullout
 * replacename
 * timestamp
